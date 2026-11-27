@@ -1,4 +1,258 @@
-<!-- 3. STEP-BY-STEP INSTALLATION & USAGE GUIDE -->
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VINCI BOT ALTISSIA By KHALID — Altissia Automation</title>
+    <!-- SEO Meta Tags pour Google -->
+    <meta name="description" content="VINCI BOT ALTISSIA By KHALID Moustansir : Automatisation complète des leçons vidéo Altissia Français (fr.py) et Anglais (en.py) pour OFPPT.">
+    <meta name="keywords" content="VINCI BOT ALTISSIA, Altissia Bot, Khalid Moustansir, OFPPT langues, fr.py, en.py, automatisation Altissia">
+    <meta name="author" content="Khalid Moustansir">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph (Aperçu WhatsApp / LinkedIn) -->
+    <meta property="og:title" content="VINCI BOT ALTISSIA By KHALID — Altissia Automation">
+    <meta property="og:description" content="Automatisez vos leçons vidéo Altissia (FR & EN) avec VINCI BOT par Khalid Moustansir.">
+    <meta property="og:type" content="website">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        cyber: {
+                            bg: '#0a0a0f',
+                            card: '#111827',
+                            border: '#1f2937',
+                            cyan: '#00f2fe',
+                            emerald: '#00ff88',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .vinci-neon-text {
+            background: linear-gradient(90deg, #00f2fe 0%, #38bdf8 50%, #00ff88 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 22px rgba(0, 242, 254, 0.45));
+        }
+        .cyber-grid-bg {
+            background-image: linear-gradient(to right, rgba(0, 242, 254, 0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 255, 136, 0.04) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        body {
+            background-color: #0a0a0f;
+            color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0f] text-gray-100 font-sans antialiased selection:bg-cyan-500/30 selection:text-cyan-300 overflow-x-hidden cyber-grid-bg">
+
+    <!-- Background Ambient Glow Effects -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/3 -right-40 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-cyan-600/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="flex items-center gap-3 bg-gray-900/95 backdrop-blur-md border border-emerald-500/40 text-emerald-400 px-4 py-3 rounded-xl shadow-2xl shadow-emerald-500/10">
+            <i class="fa-solid fa-circle-check text-lg"></i>
+            <span id="toast-message" class="text-sm font-medium">Copié dans le presse-papiers !</span>
+        </div>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <nav class="sticky top-0 z-40 backdrop-blur-xl bg-[#0a0a0f]/80 border-b border-gray-800/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00f2fe] to-[#00ff88] flex items-center justify-center text-gray-950 font-mono font-extrabold text-lg shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+                        V
+                    </div>
+                    <span class="font-mono font-bold text-sm sm:text-base tracking-wider vinci-neon-text">
+                        VINCI BOT ALTISSIA
+                    </span>
+                </a>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+                    <a href="#features" class="hover:text-[#00f2fe] transition-colors">Fonctionnalités</a>
+                    <a href="#installation" class="hover:text-[#00f2fe] transition-colors">Installation</a>
+                    <a href="#contacts" class="hover:text-[#00f2fe] transition-colors">Contacts</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="flex items-center gap-3">
+                    <button type="button" onclick="openDownloadModal()" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-[#00f2fe] border border-cyan-500/30 text-xs sm:text-sm font-mono font-semibold transition-all cursor-pointer">
+                        <i class="fa-solid fa-lock text-xs"></i>
+                        <span>Pack ZIP</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10">
+
+        <!-- 1. HERO SECTION -->
+        <section class="pt-14 pb-20 sm:pt-20 sm:pb-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <div class="text-center max-w-4xl mx-auto">
+                <!-- Creator Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[#00ff88] font-mono text-xs sm:text-sm mb-8 shadow-lg shadow-emerald-500/5">
+                    <span class="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse"></span>
+                    <span>Made By Khalid Moustansir</span>
+                </div>
+
+                <!-- Futuristic AI SVG & Typographic Logo Card -->
+                <div class="bg-[#0d1117]/90 border border-gray-800/90 rounded-2xl p-6 sm:p-8 mb-8 max-w-2xl mx-auto shadow-2xl shadow-cyan-500/10 relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-4 pb-3 border-b border-gray-800/80">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+                            <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+                            <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                            <span class="ml-2 text-xs font-mono text-gray-500">VINCI BOT ALTISSIA By KHALID</span>
+                        </div>
+                        <span class="text-[11px] font-mono text-[#00f2fe] bg-cyan-500/10 px-2.5 py-0.5 rounded-md border border-cyan-500/20">FR & EN • 15.8 KB</span>
+                    </div>
+
+                    <!-- AI-Styled Futuristic SVG + Neon Typography -->
+                    <div class="py-4 flex flex-col items-center justify-center">
+                        <svg class="w-16 h-16 sm:w-20 sm:h-20 mb-3 drop-shadow-[0_0_15px_rgba(0,242,254,0.5)]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="vinciGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#00f2fe" />
+                                    <stop offset="100%" stop-color="#00ff88" />
+                                </linearGradient>
+                            </defs>
+                            <polygon points="50,5 92,28 92,72 50,95 8,72 8,28" stroke="url(#vinciGrad)" stroke-width="2.5" fill="rgba(0,242,254,0.05)" />
+                            <polygon points="50,14 83,32 83,68 50,86 17,68 17,32" stroke="url(#vinciGrad)" stroke-width="1" stroke-dasharray="4 3" opacity="0.7" />
+                            <path d="M32 34 L50 68 L68 34" stroke="url(#vinciGrad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="50" cy="24" r="3" fill="#00ff88" />
+                        </svg>
+
+                        <div class="text-5xl sm:text-7xl font-black font-mono tracking-[0.28em] pl-[0.28em] vinci-neon-text select-all">
+                            VINCI
+                        </div>
+                        <div class="h-0.5 w-3/4 mt-3 bg-gradient-to-r from-transparent via-[#00f2fe] to-transparent opacity-80"></div>
+                    </div>
+
+                    <div class="mt-2 font-mono text-xs sm:text-sm text-[#00ff88]">
+                        ======================================<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Made By Khalid Moustansir<br>
+                        ======================================
+                    </div>
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                    Automatisez vos leçons <span class="vinci-neon-text">Altissia</span> (FR & EN)
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto mb-6 leading-relaxed">
+                    <strong class="text-gray-200">VINCI BOT ALTISSIA By KHALID</strong> automatise le visionnage et la validation complète de vos modules vidéo Français (<code class="text-[#00f2fe] font-mono">fr.py</code>) et Anglais (<code class="text-[#00ff88] font-mono">en.py</code>) avec timer calibré à <span class="text-[#00f2fe] font-mono font-semibold">110s</span>, clic auto-play de précision et mode silencieux.
+                </p>
+
+                <!-- Archive Contents Pill -->
+                <div class="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-2 rounded-xl bg-gray-900/90 border border-gray-800 font-mono text-xs text-gray-400 mb-9">
+                    <span class="text-[#00f2fe] font-semibold">Contenu du pack (15.8 KB) :</span>
+                    <span class="px-2 py-0.5 rounded bg-gray-800 text-gray-200">fr.py</span>
+                    <span class="px-2 py-0.5 rounded bg-gray-800 text-gray-200">en.py</span>
+                    <span class="px-2 py-0.5 rounded bg-gray-800 text-gray-200">requirements.txt</span>
+                    <span class="px-2 py-0.5 rounded bg-gray-800 text-gray-200">README.md</span>
+                </div>
+
+                <!-- Primary CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button type="button" onclick="openDownloadModal()" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 py-4 rounded-2xl bg-gradient-to-r from-[#00f2fe] to-[#00ff88] hover:brightness-110 text-gray-950 font-bold text-sm sm:text-base shadow-xl shadow-cyan-500/20 transition-all transform hover:-translate-y-0.5 cursor-pointer">
+                        <i class="fa-solid fa-lock text-lg"></i>
+                        <span>Télécharger VINCI BOT ALTISSIA By KHALID.zip</span>
+                    </button>
+
+                    <a href="#installation" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 py-4 rounded-2xl bg-gray-900/90 hover:bg-gray-800 text-gray-100 border border-cyan-500/40 hover:border-[#00ff88] font-semibold text-sm sm:text-base transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-book-open text-[#00f2fe]"></i>
+                        <span>Guide d'Installation</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. FEATURES GRID (4 CARDS) -->
+        <section id="features" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-gray-800/60">
+            <div class="text-center mb-14">
+                <span class="font-mono text-xs uppercase tracking-widest text-[#00f2fe] bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">Performance & Fiabilité</span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-white mt-4">Les Fonctionnalités du Bot</h2>
+                <p class="text-gray-400 mt-3 max-w-xl mx-auto text-sm sm:text-base">Une architecture optimisée pour valider vos leçons vidéo Altissia en continu.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Feature 1: Français & Anglais -->
+                <div class="bg-[#111827]/75 backdrop-blur-md border border-gray-800 hover:border-[#00f2fe]/50 rounded-2xl p-6 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/25 flex items-center justify-center text-[#00f2fe] text-xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-language"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Français & Anglais</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Deux scripts dédiés inclus dans l'archive : <code class="text-[#00f2fe] font-mono">fr.py</code> pour vos parcours Français et <code class="text-[#00ff88] font-mono">en.py</code> pour vos parcours Anglais.
+                    </p>
+                </div>
+
+                <!-- Feature 2: Validation Complète (110s) -->
+                <div class="bg-[#111827]/75 backdrop-blur-md border border-gray-800 hover:border-[#00ff88]/50 rounded-2xl p-6 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-[#00ff88] text-xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Validation 110s</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Timer calibré à <code class="text-[#00ff88] font-mono">110 secondes</code> garantissant la fin complète de la vidéo et son validation officielle avant le passage à la suite.
+                    </p>
+                </div>
+
+                <!-- Feature 3: Smart Auto-Play -->
+                <div class="bg-[#111827]/75 backdrop-blur-md border border-gray-800 hover:border-[#00f2fe]/50 rounded-2xl p-6 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/25 flex items-center justify-center text-[#00f2fe] text-xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-crosshairs"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Auto-Play Intelligent</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Clic automatique ciblé à <code class="text-[#00f2fe] font-mono">38%</code> de la hauteur d'écran suivi de la touche <code class="text-[#00f2fe] font-mono">Espace</code> pour forcer le démarrage du lecteur.
+                    </p>
+                </div>
+
+                <!-- Feature 4: Audio Mute Automatique -->
+                <div class="bg-[#111827]/75 backdrop-blur-md border border-gray-800 hover:border-[#00ff88]/50 rounded-2xl p-6 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-[#00ff88] text-xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-volume-xmark"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Son Système Muet</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Coupe automatiquement le volume principal Windows via <code class="text-[#00ff88] font-mono">pycaw</code> dès le lancement pour travailler en toute discrétion.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. STEP-BY-STEP INSTALLATION & USAGE GUIDE -->
         <section id="installation" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-gray-800/60">
             <div class="text-center mb-14">
                 <span class="font-mono text-xs uppercase tracking-widest text-[#00ff88] bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Guide Pas-à-Pas</span>
@@ -123,3 +377,228 @@
                 </div>
             </div>
         </section>
+
+        <!-- 4. PROFESSIONAL CONTACTS SECTION -->
+        <section id="contacts" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-gray-800/60">
+            <div class="text-center mb-14">
+                <span class="font-mono text-xs uppercase tracking-widest text-[#00f2fe] bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">Contact Professionnel</span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-white mt-4">Contacter Khalid Moustansir</h2>
+                <p class="text-gray-400 mt-3 max-w-xl mx-auto text-sm sm:text-base">Besoin d'assistance pour l'installation de VINCI BOT ALTISSIA ou d'une solution sur mesure ? Contactez-moi directement.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <!-- WhatsApp Card -->
+                <div class="bg-[#111827]/80 backdrop-blur-md border border-gray-800 hover:border-[#00ff88]/50 rounded-2xl p-6 flex flex-col justify-between transition-all group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-[#00ff88] text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-white">WhatsApp</h3>
+                        <p class="font-mono text-sm text-[#00ff88] mt-1 select-all">0693726440</p>
+                    </div>
+                    <div class="flex items-center gap-2 mt-6">
+                        <a href="https://wa.me/212693726440" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 text-xs font-semibold transition-colors">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            <span>Message Direct</span>
+                        </a>
+                        <button onclick="copyText('0693726440', 'Numéro WhatsApp 0693726440 copié !')" class="p-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white transition-colors" title="Copier le numéro">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Email Card -->
+                <div class="bg-[#111827]/80 backdrop-blur-md border border-gray-800 hover:border-[#00f2fe]/50 rounded-2xl p-6 flex flex-col justify-between transition-all group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/25 flex items-center justify-center text-[#00f2fe] text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-white">Email</h3>
+                        <p class="font-mono text-xs text-[#00f2fe] mt-1 break-all select-all">khalidmoustansirr@gmail.com</p>
+                    </div>
+                    <div class="flex items-center gap-2 mt-6">
+                        <a href="mailto:khalidmoustansirr@gmail.com" class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 border border-cyan-500/30 text-xs font-semibold transition-colors">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Envoyer Email</span>
+                        </a>
+                        <button onclick="copyText('khalidmoustansirr@gmail.com', 'Adresse email copiée !')" class="p-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white transition-colors" title="Copier l'email">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- LinkedIn Card -->
+                <div class="bg-[#111827]/80 backdrop-blur-md border border-gray-800 hover:border-sky-500/50 rounded-2xl p-6 flex flex-col justify-between transition-all group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/25 flex items-center justify-center text-sky-400 text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-white">LinkedIn</h3>
+                        <p class="font-mono text-sm text-sky-400 mt-1 select-all">Khalid Moustansir</p>
+                    </div>
+                    <div class="flex items-center gap-2 mt-6">
+                        <a href="https://www.linkedin.com/search/results/all/?keywords=Khalid%20Moustansir" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-sky-500/15 hover:bg-sky-500/25 text-sky-300 border border-sky-500/30 text-xs font-semibold transition-colors">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            <span>Voir Profil</span>
+                        </a>
+                        <button onclick="copyText('Khalid Moustansir', 'Profil LinkedIn copié !')" class="p-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white transition-colors" title="Copier le nom">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 6. FOOTER -->
+    <footer class="relative z-10 border-t border-gray-800/80 bg-[#08080c] py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-gray-400 font-mono">
+            <div class="flex items-center gap-2">
+                <span class="text-[#00f2fe] font-bold">VINCI BOT ALTISSIA By KHALID</span>
+                <span>•</span>
+                <span>FR & EN Automation</span>
+            </div>
+            <div>
+                © 2026 VINCI BOT ALTISSIA — Développé par <span class="text-[#00ff88] font-semibold">Khalid Moustansir</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Access Code Modal for Downloading the Bot -->
+    <div id="access-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="bg-[#111827] border border-cyan-500/40 rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl shadow-cyan-500/20 relative">
+            <!-- Close Button -->
+            <button type="button" onclick="closeDownloadModal()" class="absolute top-4 right-4 w-9 h-9 rounded-xl bg-gray-800/80 hover:bg-gray-700 text-gray-400 hover:text-white flex items-center justify-center transition-colors cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Icon & Title -->
+            <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-[#00f2fe] flex items-center justify-center text-2xl mx-auto mb-4 shadow-lg shadow-cyan-500/10">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white text-center">Accès Protégé par Code</h3>
+            <p class="text-sm text-gray-400 text-center mt-2">
+                Entrez votre <strong class="text-gray-200">code d'activation</strong> pour télécharger <span class="text-[#00f2fe] font-mono">VINCI BOT ALTISSIA By KHALID.zip</span>.
+            </p>
+
+            <!-- Code Input Form -->
+            <form onsubmit="verifyAccessCode(event)" class="mt-6 space-y-4">
+                <div>
+                    <label for="access-code-input" class="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-2">Code d'Accès</label>
+                    <input id="access-code-input" type="password" placeholder="Ex: khalid-xxxx" autocomplete="off" class="w-full px-4 py-3.5 rounded-xl bg-[#0a0a0f] border border-gray-700 focus:border-[#00f2fe] focus:outline-none text-white font-mono text-center tracking-widest text-base" required>
+                    <p id="access-error" class="hidden text-xs text-rose-400 font-mono mt-2 text-center">
+                        <i class="fa-solid fa-circle-exclamation mr-1"></i> Code incorrect ! Contactez Khalid pour obtenir votre code.
+                    </p>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 px-5 rounded-xl bg-gradient-to-r from-[#00f2fe] to-[#00ff88] hover:brightness-110 text-gray-950 font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all cursor-pointer">
+                    <i class="fa-solid fa-unlock-keyhole"></i>
+                    <span>Valider & Télécharger le Bot</span>
+                </button>
+            </form>
+
+            <!-- Request Code on WhatsApp -->
+            <div class="mt-6 pt-5 border-t border-gray-800 text-center">
+                <p class="text-xs text-gray-400 mb-3">Vous n'avez pas encore de code d'accès ?</p>
+                <a href="https://wa.me/212693726440?text=Salam%20Khalid%2C%20bghit%20code%20d'acc%C3%A8s%20dyal%20VINCI%20BOT%20ALTISSIA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-[#00ff88] border border-emerald-500/30 text-xs font-semibold transition-colors">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>Demander un Code sur WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        let toastTimeout;
+        // Code secret d'accès (tu peux le modifier ici à tout moment)
+        const SECRET_ACCESS_CODE = "vinci 433";
+
+        // Open Access Code Modal
+        function openDownloadModal() {
+            const modal = document.getElementById('access-modal');
+            const input = document.getElementById('access-code-input');
+            const error = document.getElementById('access-error');
+            error.classList.add('hidden');
+            input.value = '';
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => input.focus(), 100);
+        }
+
+        // Close Access Code Modal
+        function closeDownloadModal() {
+            const modal = document.getElementById('access-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Verify Access Code & Trigger ZIP Download
+        function verifyAccessCode(event) {
+            event.preventDefault();
+            const input = document.getElementById('access-code-input');
+            const error = document.getElementById('access-error');
+            const enteredCode = input.value.trim();
+
+            if (enteredCode === SECRET_ACCESS_CODE) {
+                error.classList.add('hidden');
+                closeDownloadModal();
+                showToast('Code validé ! Téléchargement de VINCI BOT ALTISSIA By KHALID.zip...');
+
+                // Trigger file download programmatically
+                const link = document.createElement('a');
+                link.href = 'VINCI%20BOT%20ALTISSIA%20By%20KHALID.zip';
+                link.download = 'VINCI BOT ALTISSIA By KHALID.zip';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } else {
+                error.classList.remove('hidden');
+                input.classList.add('border-rose-500');
+                setTimeout(() => input.classList.remove('border-rose-500'), 1500);
+            }
+        }
+
+        // Close modal when clicking outside the card
+        document.getElementById('access-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDownloadModal();
+            }
+        });
+
+        // Show custom toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 2800);
+        }
+
+        // Reliable clipboard copy using textarea fallback (works in all iframes & browsers)
+        function copyText(text, customMessage = 'Copié dans le presse-papiers !') {
+            try {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToast(customMessage);
+            } catch (err) {
+                showToast('Erreur lors de la copie.');
+            }
+        }
+    </script>
+</body>
+</html>
