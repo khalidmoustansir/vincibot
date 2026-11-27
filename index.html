@@ -1,588 +1,298 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VINCI BOT ALTISSIA By KHALID — Altissia Automation</title>
-  <meta name="description" content="Téléchargez et installez VINCI BOT ALTISSIA By KHALID pour automatiser vos modules Altissia facilement." />
-  <meta name="keywords" content="VINCI BOT ALTISSIA, Altissia Bot, Khalid Moustansir, automation Altissia, Python bot" />
-  <meta property="og:title" content="VINCI BOT ALTISSIA By KHALID" />
-  <meta property="og:description" content="Pack officiel VINCI BOT ALTISSIA By KHALID avec guide d'installation étape par étape." />
+  <meta name="description" content="VINCI BOT ALTISSIA By KHALID Moustansir : Automatisation complète des leçons vidéo Altissia Français (fr.py) et Anglais (en.py)." />
+  <meta name="keywords" content="VINCI BOT ALTISSIA, Altissia Bot, Khalid Moustansir, OFPPT langues, fr.py, en.py, automatisation Altissia" />
+  <meta name="author" content="Khalid Moustansir" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="VINCI BOT ALTISSIA By KHALID — Altissia Automation" />
+  <meta property="og:description" content="Automatisez vos leçons vidéo Altissia (FR & EN) avec VINCI BOT par Khalid Moustansir." />
   <meta property="og:type" content="website" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <style>
-    :root {
-      --bg: #07090f;
-      --card: #0e1320;
-      --card-2: #131a2c;
-      --border: rgba(255, 255, 255, 0.08);
-      --text: #f3f6fc;
-      --muted: #98a2b3;
-      --accent: #38bdf8;
-      --accent-2: #818cf8;
-      --success: #22c55e;
-      --danger: #ef4444;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.12), transparent 40%),
-                  radial-gradient(circle at 85% 20%, rgba(129, 140, 248, 0.11), transparent 35%),
-                  var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #060913;
+      color: #f1f5f9;
     }
-
-    a {
-      color: inherit;
-      text-decoration: none;
+    code, pre, .font-mono {
+      font-family: 'JetBrains Mono', monospace;
     }
-
-    .container {
-      width: min(1100px, 92%);
-      margin: 0 auto;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
+    .glass-card {
+      background: rgba(15, 23, 42, 0.72);
       backdrop-filter: blur(14px);
-      background: rgba(7, 9, 15, 0.78);
-      border-bottom: 1px solid var(--border);
+      border: 1px solid rgba(148, 163, 184, 0.14);
     }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 68px;
-      gap: 16px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-    }
-
-    .brand-badge {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 14px var(--accent);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .hero {
-      padding: 76px 0 54px;
-      text-align: center;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      color: #7dd3fc;
-      font-size: 0.82rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero p {
-      max-width: 680px;
-      margin: 0 auto 30px;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 14px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 20px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #06101d;
-    }
-
-    .btn-secondary {
-      background: var(--card);
-      color: var(--text);
-      border-color: var(--border);
-    }
-
-    .btn-secondary:hover {
-      border-color: rgba(255, 255, 255, 0.22);
-    }
-
-    .btn-sm {
-      padding: 8px 14px;
-      font-size: 0.85rem;
-      border-radius: 9px;
-    }
-
-    section {
-      padding: 46px 0;
-    }
-
-    .section-header {
-      margin-bottom: 24px;
-    }
-
-    .section-header h2 {
-      font-size: 1.65rem;
-      margin-bottom: 6px;
-    }
-
-    .section-header p {
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px;
-    }
-
-    .card h3 {
-      font-size: 1.08rem;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .step {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 18px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px 22px;
-    }
-
-    .step-left {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-    }
-
-    .step-num {
-      min-width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      font-size: 0.9rem;
-      background: rgba(56, 189, 248, 0.14);
-      color: var(--accent);
-      border: 1px solid rgba(56, 189, 248, 0.28);
-    }
-
-    .step h3 {
-      font-size: 1.05rem;
-      margin-bottom: 4px;
-    }
-
-    .step p {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    code {
-      background: rgba(255, 255, 255, 0.06);
-      padding: 2px 7px;
-      border-radius: 6px;
-      font-size: 0.86rem;
-      color: #e2e8f0;
-    }
-
-    .contact-box {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.09), rgba(129, 140, 248, 0.09));
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 26px;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 28px 0;
-      margin-top: 30px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(2, 6, 15, 0.78);
-      backdrop-filter: blur(8px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 18px;
-      z-index: 100;
-    }
-
-    .modal-backdrop.open {
-      display: flex;
-    }
-
-    .modal {
-      width: min(430px, 100%);
-      background: var(--card-2);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
-    }
-
-    .modal-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-
-    .modal-top h3 {
-      font-size: 1.18rem;
-    }
-
-    .close-btn {
-      background: transparent;
-      border: none;
-      color: var(--muted);
-      font-size: 1.35rem;
-      cursor: pointer;
-      line-height: 1;
-    }
-
-    .close-btn:hover {
-      color: var(--text);
-    }
-
-    .modal p {
-      color: var(--muted);
-      font-size: 0.92rem;
-      margin-bottom: 16px;
-    }
-
-    .input-group {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .input-group input {
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 11px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: var(--bg);
-      color: var(--text);
-      font-size: 0.96rem;
-      outline: none;
-    }
-
-    .input-group input:focus {
-      border-color: var(--accent);
-    }
-
-    .error-msg {
-      color: var(--danger);
-      font-size: 0.85rem;
-      min-height: 20px;
-    }
-
-    .modal-footer {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    @media (max-width: 720px) {
-      .nav-links {
-        display: none;
-      }
-
-      .step {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .step .btn {
-        align-self: flex-start;
-      }
+    .hero-glow {
+      background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.18), transparent 55%),
+                  radial-gradient(circle at 80% 25%, rgba(139, 92, 246, 0.14), transparent 45%);
     }
   </style>
 </head>
-<body>
-  <header>
-    <div class="container nav">
-      <a href="#" class="brand">
-        <span class="brand-badge"></span>
-        <span>VINCI BOT ALTISSIA</span>
+<body class="hero-glow min-h-screen antialiased selection:bg-sky-500/30 selection:text-sky-200">
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 border-b border-slate-800/80 bg-[#060913]/85 backdrop-blur-md">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+      <a href="#" class="flex items-center gap-3">
+        <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-sky-400 to-indigo-600 text-slate-950 font-bold shadow-lg shadow-sky-500/20">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+        <div>
+          <span class="block text-sm font-bold tracking-wide text-white">VINCI BOT ALTISSIA</span>
+          <span class="block text-[11px] text-sky-400 font-medium">By KHALID MOUSTANSIR</span>
+        </div>
       </a>
-      <nav class="nav-links">
-        <a href="#fonctionnalites">Fonctionnalités</a>
-        <a href="#installation">Installation</a>
-        <a href="#contact">Contact</a>
+
+      <nav class="hidden md:flex items-center gap-7 text-sm text-slate-300">
+        <a href="#apercu" class="hover:text-sky-400 transition">Aperçu</a>
+        <a href="#installation" class="hover:text-sky-400 transition">Installation</a>
+        <a href="#scripts" class="hover:text-sky-400 transition">Scripts FR &amp; EN</a>
+        <a href="#contact" class="hover:text-sky-400 transition">Contact</a>
       </nav>
+
+      <button onclick="openAccessModal()" class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-sky-400 to-indigo-500 px-4 py-2 text-xs sm:text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/20 hover:brightness-110 transition cursor-pointer">
+        <i class="fa-solid fa-download"></i>
+        <span>Télécharger le Bot</span>
+      </button>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <div class="pill">Pack Officiel • By KHALID</div>
-        <h1>Automatisez vos sessions avec <span class="gradient-text">VINCI BOT ALTISSIA</span></h1>
-        <p>
-          Téléchargez le pack officiel <code>VINCI BOT ALTISSIA By KHALID.zip</code> et suivez le guide d'installation étape par étape pour configurer votre environnement rapidement.
-        </p>
-        <div class="hero-actions">
-          <button type="button" class="btn btn-primary" onclick="openAccessModal()">
-            Télécharger VINCI BOT ALTISSIA By KHALID.zip
-          </button>
-          <a href="#installation" class="btn btn-secondary">Voir les étapes d'installation</a>
-        </div>
+  <!-- Hero Section -->
+  <section id="apercu" class="mx-auto max-w-6xl px-4 pt-16 pb-14 sm:px-6 sm:pt-24">
+    <div class="text-center max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-1.5 text-xs font-medium text-sky-300 mb-6">
+        <i class="fa-solid fa-bolt"></i>
+        <span>Automatisation Altissia • Français (fr.py) &amp; Anglais (en.py)</span>
       </div>
-    </section>
 
-    <section id="fonctionnalites">
-      <div class="container">
-        <div class="section-header">
-          <h2>Pourquoi utiliser VINCI BOT ALTISSIA ?</h2>
-          <p>Conçu pour gagner du temps avec un démarrage simple et structuré.</p>
-        </div>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Installation guidée</h3>
-            <p>Toutes les étapes sont organisées dans l'ordre exact pour éviter les erreurs de configuration.</p>
-          </div>
-          <div class="card">
-            <h3>Pack ZIP complet</h3>
-            <p>Inclut les fichiers nécessaires prêts à être extraits et exécutés en local sur votre machine.</p>
-          </div>
-          <div class="card">
-            <h3>Accès sécurisé</h3>
-            <p>Le téléchargement du pack est protégé par un code d'accès fourni directement par Khalid.</p>
-          </div>
-        </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+        Automatisez vos leçons vidéo <span class="bg-gradient-to-r from-sky-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent">Altissia</span> sans effort
+      </h1>
+
+      <p class="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed">
+        Pack complet <strong class="text-white">VINCI BOT ALTISSIA By KHALID</strong> conçu pour automatiser l'avancement des modules et leçons sur Altissia en Français et en Anglais avec un démarrage simple et structuré.
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <button onclick="openAccessModal()" class="inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-sky-400 to-indigo-500 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-xl shadow-sky-500/25 hover:brightness-110 transition cursor-pointer">
+          <i class="fa-solid fa-file-zipper"></i>
+          <span>Télécharger VINCI BOT ALTISSIA By KHALID.zip</span>
+        </button>
+        <a href="#installation" class="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900/80 px-6 py-3.5 text-sm font-semibold text-slate-200 hover:border-sky-500/50 hover:text-white transition">
+          <i class="fa-solid fa-list-ol text-sky-400"></i>
+          <span>Guide d'installation</span>
+        </a>
       </div>
-    </section>
+    </div>
 
-    <section id="installation">
-      <div class="container">
-        <div class="section-header">
-          <h2>Guide d'installation étape par étape</h2>
-          <p>Suivez ces étapes dans l'ordre avant de lancer le bot.</p>
+    <!-- Stats / Highlights -->
+    <div class="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <div class="glass-card rounded-2xl p-5">
+        <div class="flex items-center gap-3 text-sky-400 font-semibold text-sm mb-2">
+          <i class="fa-solid fa-language text-lg"></i>
+          <span>Double Langue (FR &amp; EN)</span>
         </div>
-
-        <div class="steps">
-          <div class="step">
-            <div class="step-left">
-              <div class="step-num">01</div>
-              <div>
-                <h3>Installer Firefox Browser</h3>
-                <p>Téléchargez et installez Mozilla Firefox depuis le site officiel pour assurer la compatibilité du navigateur.</p>
-              </div>
-            </div>
-            <a href="https://www.mozilla.org/firefox/new/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-              Installer
-            </a>
-          </div>
-
-          <div class="step">
-            <div class="step-left">
-              <div class="step-num">02</div>
-              <div>
-                <h3>Installer Python 3</h3>
-                <p>Téléchargez et installez la dernière version de Python 3 (pensez à cocher <code>Add Python to PATH</code> pendant l'installation).</p>
-              </div>
-            </div>
-            <a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-              Installer
-            </a>
-          </div>
-
-          <div class="step">
-            <div class="step-left">
-              <div class="step-num">03</div>
-              <div>
-                <h3>Télécharger et extraire le pack ZIP</h3>
-                <p>Téléchargez <code>VINCI BOT ALTISSIA By KHALID.zip</code> à l'aide de votre code d'accès, puis extrayez le dossier sur votre PC.</p>
-              </div>
-            </div>
-            <button type="button" class="btn btn-primary btn-sm" onclick="openAccessModal()">
-              Pack ZIP
-            </button>
-          </div>
-
-          <div class="step">
-            <div class="step-left">
-              <div class="step-num">04</div>
-              <div>
-                <h3>Installer les dépendances et lancer le bot</h3>
-                <p>Ouvrez un terminal dans le dossier extrait, installez les dépendances requises puis lancez le script principal avec Python.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p class="text-sm text-slate-400">Scripts dédiés <code class="text-sky-300">fr.py</code> pour le Français et <code class="text-sky-300">en.py</code> pour l'Anglais sur la plateforme Altissia.</p>
       </div>
-    </section>
 
-    <section id="contact">
-      <div class="container">
-        <div class="contact-box">
+      <div class="glass-card rounded-2xl p-5">
+        <div class="flex items-center gap-3 text-indigo-400 font-semibold text-sm mb-2">
+          <i class="fa-brands fa-firefox-browser text-lg"></i>
+          <span>Compatible Firefox &amp; Python</span>
+        </div>
+        <p class="text-sm text-slate-400">Fonctionne avec Mozilla Firefox et Python 3 en suivant les étapes d'installation dans l'ordre.</p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-5">
+        <div class="flex items-center gap-3 text-emerald-400 font-semibold text-sm mb-2">
+          <i class="fa-solid fa-shield-halved text-lg"></i>
+          <span>Accès Protégé par Code</span>
+        </div>
+        <p class="text-sm text-slate-400">Téléchargement sécurisé via code d'accès fourni par <strong class="text-slate-200">Khalid Moustansir</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Installation Steps -->
+  <section id="installation" class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <div class="mb-8">
+      <span class="text-xs font-semibold uppercase tracking-wider text-sky-400">Mise en route</span>
+      <h2 class="mt-1 text-2xl sm:text-3xl font-bold text-white">Étapes d'installation</h2>
+      <p class="mt-2 text-sm text-slate-400">Suivez chaque étape dans l'ordre avant de lancer le bot.</p>
+    </div>
+
+    <div class="space-y-4">
+      <!-- Étape 01 : Firefox -->
+      <div class="glass-card flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl p-5">
+        <div class="flex items-start gap-4">
+          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-500/15 border border-sky-500/30 font-mono text-sm font-bold text-sky-400">
+            01
+          </div>
           <div>
-            <h2>Besoin d'un code d'accès ou d'aide ?</h2>
-            <p style="color: var(--muted);">Contactez Khalid Moustansir directement par WhatsApp, LinkedIn ou Email.</p>
+            <h3 class="text-base font-bold text-white">Installer Firefox Browser</h3>
+            <p class="mt-1 text-sm text-slate-400">Téléchargez et installez <strong class="text-slate-200">Mozilla Firefox</strong> depuis le site officiel pour assurer la compatibilité du navigateur.</p>
           </div>
-          <div class="contact-links">
-            <a href="https://wa.me/212693726440?text=Salam%20Khalid%2C%20bghit%20code%20d%27acc%C3%A8s%20dyal%20VINCI%20BOT%20ALTISSIA" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-              WhatsApp
-            </a>
-            <a href="https://www.linkedin.com/in/khalid-moustansir" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-              LinkedIn
-            </a>
-            <a href="mailto:khalidmoustansirr@gmail.com" class="btn btn-secondary btn-sm">
-              Email
-            </a>
+        </div>
+        <a href="https://www.mozilla.org/firefox/new/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-800/80 px-4 py-2.5 text-xs font-semibold text-white hover:border-sky-400/60 hover:text-sky-300 transition shrink-0">
+          <i class="fa-brands fa-firefox-browser"></i>
+          <span>Installer Firefox</span>
+        </a>
+      </div>
+
+      <!-- Étape 02 : Python -->
+      <div class="glass-card flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl p-5">
+        <div class="flex items-start gap-4">
+          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-500/15 border border-sky-500/30 font-mono text-sm font-bold text-sky-400">
+            02
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Installer Python 3</h3>
+            <p class="mt-1 text-sm text-slate-400">Installez Python 3 sur votre PC et cochez bien <code class="text-sky-300">Add Python to PATH</code> lors de l'installation.</p>
+          </div>
+        </div>
+        <a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-800/80 px-4 py-2.5 text-xs font-semibold text-white hover:border-sky-400/60 hover:text-sky-300 transition shrink-0">
+          <i class="fa-brands fa-python"></i>
+          <span>Télécharger Python</span>
+        </a>
+      </div>
+
+      <!-- Étape 03 : Télécharger et extraire le ZIP -->
+      <div class="glass-card flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl p-5">
+        <div class="flex items-start gap-4">
+          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-500/15 border border-sky-500/30 font-mono text-sm font-bold text-sky-400">
+            03
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Télécharger et extraire le pack ZIP</h3>
+            <p class="mt-1 text-sm text-slate-400">Téléchargez <code class="text-sky-300">VINCI BOT ALTISSIA By KHALID.zip</code> avec votre code d'accès, puis faites <strong class="text-slate-200">Extraire tout</strong> dans un dossier.</p>
+          </div>
+        </div>
+        <button onclick="openAccessModal()" class="inline-flex items-center justify-center gap-2 rounded-xl bg-sky-500/15 border border-sky-500/30 px-4 py-2.5 text-xs font-semibold text-sky-300 hover:bg-sky-500/25 transition shrink-0 cursor-pointer">
+          <i class="fa-solid fa-download"></i>
+          <span>Obtenir le ZIP</span>
+        </button>
+      </div>
+
+      <!-- Étape 04 : Dépendances & lancement -->
+      <div class="glass-card flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl p-5">
+        <div class="flex items-start gap-4">
+          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-500/15 border border-sky-500/30 font-mono text-sm font-bold text-sky-400">
+            04
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Installer les dépendances et lancer le script</h3>
+            <p class="mt-1 text-sm text-slate-400">Ouvrez le terminal dans le dossier du bot, installez les packages requis puis exécutez <code class="text-sky-300">python fr.py</code> ou <code class="text-sky-300">python en.py</code>.</p>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer>
-    <div class="container">
-      © 2026 VINCI BOT ALTISSIA By KHALID — Tous droits réservés.
+  <!-- Scripts FR & EN -->
+  <section id="scripts" class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <div class="mb-8">
+      <span class="text-xs font-semibold uppercase tracking-wider text-indigo-400">Exécution</span>
+      <h2 class="mt-1 text-2xl sm:text-3xl font-bold text-white">Commandes rapides</h2>
+    </div>
+
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+      <div class="glass-card rounded-2xl p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-mono text-sm font-bold text-sky-400">fr.py — Français</span>
+          <span class="rounded-md bg-slate-800 px-2.5 py-1 text-xs text-slate-300">Module FR</span>
+        </div>
+        <pre class="overflow-x-auto rounded-xl bg-slate-950/90 border border-slate-800 p-4 text-xs text-emerald-300"><code>pip install -r requirements.txt
+python fr.py</code></pre>
+      </div>
+
+      <div class="glass-card rounded-2xl p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-mono text-sm font-bold text-indigo-400">en.py — Anglais</span>
+          <span class="rounded-md bg-slate-800 px-2.5 py-1 text-xs text-slate-300">Module EN</span>
+        </div>
+        <pre class="overflow-x-auto rounded-xl bg-slate-950/90 border border-slate-800 p-4 text-xs text-emerald-300"><code>pip install -r requirements.txt
+python en.py</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <div class="glass-card flex flex-col md:flex-row items-start md:items-center justify-between gap-6 rounded-2xl p-7">
+      <div>
+        <h2 class="text-xl sm:text-2xl font-bold text-white">Besoin d'un code d'accès ou d'assistance ?</h2>
+        <p class="mt-1 text-sm text-slate-400">Contactez <strong class="text-slate-200">Khalid Moustansir</strong> directement pour obtenir votre code d'accès ou de l'aide.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a href="https://wa.me/212693726440?text=Salam%20Khalid%2C%20bghit%20code%20d%27acc%C3%A8s%20dyal%20VINCI%20BOT%20ALTISSIA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-4 py-2.5 text-xs sm:text-sm font-semibold text-slate-950 hover:brightness-110 transition">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          <span>WhatsApp</span>
+        </a>
+        <a href="https://www.linkedin.com/in/khalid-moustansir" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900 px-4 py-2.5 text-xs sm:text-sm font-semibold text-slate-200 hover:border-sky-400/50 transition">
+          <i class="fa-brands fa-linkedin text-sky-400"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="mailto:khalidmoustansirr@gmail.com" class="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900 px-4 py-2.5 text-xs sm:text-sm font-semibold text-slate-200 hover:border-sky-400/50 transition">
+          <i class="fa-solid fa-envelope text-indigo-400"></i>
+          <span>Email</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 py-8 text-center text-xs text-slate-500">
+    <div class="mx-auto max-w-6xl px-4">
+      © 2026 VINCI BOT ALTISSIA By KHALID MOUSTANSIR — Tous droits réservés.
     </div>
   </footer>
 
-  <div class="modal-backdrop" id="accessModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal">
-      <div class="modal-top">
-        <h3 id="modalTitle">Code d'accès requis</h3>
-        <button type="button" class="close-btn" onclick="closeAccessModal()" aria-label="Fermer">&times;</button>
+  <!-- Modal Code d'Accès -->
+  <div id="accessModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4">
+    <div class="w-full max-w-md rounded-2xl border border-slate-700/80 bg-slate-900 p-6 shadow-2xl">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-key text-sky-400"></i>
+          <span>Code d'accès requis</span>
+        </h3>
+        <button onclick="closeAccessModal()" class="text-slate-400 hover:text-white text-xl leading-none cursor-pointer">&times;</button>
       </div>
-      <p>Entrez le code d'accès pour télécharger <code>VINCI BOT ALTISSIA By KHALID.zip</code>.</p>
-      <form id="accessForm" onsubmit="verifyAccessCode(event)">
-        <div class="input-group">
-          <input
-            type="text"
-            id="accessCodeInput"
-            placeholder="Ex: khalid-xxxx"
-            autocomplete="off"
-            required
-          />
-          <div class="error-msg" id="accessError"></div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Valider et télécharger</button>
-          <a
-            href="https://wa.me/212693726440?text=Salam%20Khalid%2C%20bghit%20code%20d%27acc%C3%A8s%20dyal%20VINCI%20BOT%20ALTISSIA"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-secondary btn-sm"
-          >
-            Demander un code sur WhatsApp
-          </a>
-        </div>
+
+      <p class="text-sm text-slate-400 mb-4">
+        Entrez le code d'accès pour télécharger <strong class="text-slate-200">VINCI BOT ALTISSIA By KHALID.zip</strong>.
+      </p>
+
+      <form onsubmit="verifyAccessCode(event)" class="space-y-3">
+        <input
+          type="text"
+          id="accessCodeInput"
+          placeholder="Ex: khalid-xxxx"
+          autocomplete="off"
+          required
+          class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white placeholder-slate-500 focus:border-sky-400 focus:outline-none"
+        />
+        <p id="accessError" class="min-h-[20px] text-xs text-rose-400"></p>
+
+        <button type="submit" class="w-full rounded-xl bg-gradient-to-r from-sky-400 to-indigo-500 py-3 text-sm font-bold text-slate-950 hover:brightness-110 transition cursor-pointer">
+          Valider et télécharger
+        </button>
+
+        <a
+          href="https://wa.me/212693726440?text=Salam%20Khalid%2C%20bghit%20code%20d%27acc%C3%A8s%20dyal%20VINCI%20BOT%20ALTISSIA"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block w-full rounded-xl border border-slate-700 bg-slate-800/70 py-2.5 text-center text-xs font-semibold text-slate-300 hover:text-white transition"
+        >
+          Demander le code sur WhatsApp
+        </a>
       </form>
     </div>
   </div>
@@ -598,23 +308,24 @@
 
     function openAccessModal() {
       errorMsg.textContent = "";
+      errorMsg.className = "min-h-[20px] text-xs text-rose-400";
       codeInput.value = "";
-      modal.classList.add("open");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
       setTimeout(() => codeInput.focus(), 50);
     }
 
     function closeAccessModal() {
-      modal.classList.remove("open");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
     }
 
     modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        closeAccessModal();
-      }
+      if (e.target === modal) closeAccessModal();
     });
 
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.classList.contains("open")) {
+      if (e.key === "Escape" && !modal.classList.contains("hidden")) {
         closeAccessModal();
       }
     });
@@ -624,8 +335,8 @@
       const enteredCode = codeInput.value.trim();
 
       if (enteredCode === SECRET_ACCESS_CODE) {
-        errorMsg.style.color = "var(--success)";
-        errorMsg.textContent = "Code valide ! Démarrage du téléchargement...";
+        errorMsg.className = "min-h-[20px] text-xs text-emerald-400";
+        errorMsg.textContent = "Code valide ! Téléchargement en cours...";
 
         const link = document.createElement("a");
         link.href = encodeURI(ZIP_FILE_NAME);
@@ -635,11 +346,10 @@
         document.body.removeChild(link);
 
         setTimeout(() => {
-          errorMsg.style.color = "var(--danger)";
           closeAccessModal();
         }, 900);
       } else {
-        errorMsg.style.color = "var(--danger)";
+        errorMsg.className = "min-h-[20px] text-xs text-rose-400";
         errorMsg.textContent = "Code d'accès incorrect. Réessayez ou demandez-le sur WhatsApp.";
       }
     }
